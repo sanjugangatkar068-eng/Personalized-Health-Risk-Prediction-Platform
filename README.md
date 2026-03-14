@@ -3,7 +3,7 @@ A data-driven healthcare analytics platform that predicts individual health risk
 
 Personalized Health Risk Prediction Platform
 📌 Overview
-The Personalized Health Risk Prediction Platform is an intelligent healthcare solution that uses machine learning and data analytics to identify potential health risks for individuals. By analyzing multiple sources of health-related data—such as demographics, lifestyle habits, medical history, and wearable device metrics—the platform provides personalized insights and preventive recommendations.
+The Personalized Health Risk Prediction Platform is an intelligent healthcare solution that uses machine learning and data analytics to identify potential health risks for individuals.<br> By analyzing multiple sources of health-related data—such as demographics, lifestyle habits, medical history, and wearable device metrics—the platform provides personalized insights and preventive recommendations.
 The primary goal of the platform is to support early detection of diseases, encourage preventive healthcare, and help individuals make informed decisions about their well-being. At the same time, it assists healthcare professionals by providing data-driven insights for more effective diagnosis and treatment planning.
 ⚙️ Key Features
 Data Integration:
