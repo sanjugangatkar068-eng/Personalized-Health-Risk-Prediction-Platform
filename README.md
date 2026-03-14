@@ -1,35 +1,105 @@
-<b>This platform analyzes a variety of health data—from demographics and lifestyle habits to medical history and wearable device metrics—enabling early detection of potential health issues. It empowers individuals to make informed health decisions while assisting healthcare professionals with crucial data-driven insights.</b></br></br></br><b>⚙️ Key Features</b></br>
+# HealthHub — Frontend + Backend
 
-<b>Data Integration 📊:</b>
+```
+healthhub/
+├── backend/
+│   ├── server.js       ← Express REST API
+│   └── package.json
+└── frontend/
+    └── index.html      ← Static UI (calls backend)
+```
 
-Collects diverse health data, improving prediction accuracy by incorporating age, gender, lifestyle choices, and wearable device information.
+---
 
+## Backend (Node.js / Express)
 
+### Install & run
+```bash
+cd backend
+npm install
+npm start          # production  →  http://localhost:3001
+npm run dev        # hot-reload (nodemon)
+```
 
-<b>Risk Prediction 🔍:</b>
+### API Endpoints
 
-Utilizes advanced algorithms to predict risks of conditions like cardiovascular diseases, diabetes, and obesity, allowing users to take preventive action.
+| Method | Route | Description |
+|--------|-------|-------------|
+| GET | `/api/health` | Health check — returns DB size |
+| POST | `/api/risk/predict` | Cardiovascular risk prediction |
+| GET | `/api/medibot/conditions` | List all 50 conditions |
+| POST | `/api/medibot/search` | Search by name or symptoms |
+| POST | `/api/medibot/severity` | Severity assessment |
 
+#### POST `/api/risk/predict`
+```json
+{
+  "age": 50, "bmi": 27, "systolic_bp": 130, "cholesterol": 200,
+  "smoker": 0, "diabetes": 0, "family_history": 0, "pm25": 30, "exercise": 2
+}
+```
+Response:
+```json
+{
+  "probability": 0.31,
+  "risk_label": "LOW",
+  "bmi_category": "Overweight",
+  "recommendations": ["Increase physical activity…"]
+}
+```
 
+#### POST `/api/medibot/search`
+```json
+{ "query": "fever and cough" }
+```
+Response:
+```json
+{
+  "match": "influenza",
+  "method": "symptom",
+  "data": { "description": "…", "causes": […], "symptoms": […], "remedies": […] }
+}
+```
 
-<b>Interactive Dashboards 📈:</b>
+#### POST `/api/medibot/severity`
+```json
+{ "age": 45, "pain": 7 }
+```
+Response:
+```json
+{
+  "level": "moderate",
+  "label": "MODERATE — MEDICAL CONSULTATION ADVISED",
+  "body": "Pain score: 7/10. Schedule an appointment with your physician promptly.",
+  "advisories": []
+}
+```
 
-Offers user-friendly dashboards displaying personalized health scores, risk levels, and trends through clear visualizations such as graphs and charts.
+---
 
+## Frontend (Static HTML)
 
+Open `frontend/index.html` directly in a browser **after** the backend is running.
 
-<b>Personalized Recommendations 💡:</b>
+```bash
+# simplest way — open directly
+open frontend/index.html
 
-Provides tailored strategies for prevention, including dietary changes, exercise plans, and health checkup suggestions based on individual risk profiles.
+# or serve with any static server
+npx serve frontend
+python3 -m http.server 8080 --directory frontend
+```
 
+The frontend points to `http://localhost:3001` (configured via `API_BASE` at the top of the `<script>` block). Change that constant if you deploy the backend elsewhere.
 
+An **API status pill** in the top-right corner shows `API ONLINE` (green) or `API OFFLINE` (red) and re-checks every 30 seconds.
 
-<b>Adaptive Learning 🧠:</b>
+---
 
-Continuously improves predictions with new data, ensuring the platform provides accurate and reliable health insights over time.
+## CORS
 
+The backend uses the `cors` package and allows all origins by default. For production, restrict it:
 
-
-
-
-<b>🌍 ImpactBy transforming raw health data into valuable insights, this platform promotes proactive health management. It empowers individuals to stay informed about their health while enabling healthcare professionals to make better decisions, contributing to a more efficient and effective healthcare system.</b>
+```js
+app.use(cors({ origin: 'https://yourdomain.com' }));
+```
