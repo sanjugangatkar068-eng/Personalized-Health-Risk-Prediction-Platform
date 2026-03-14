@@ -32,4 +32,4 @@ Continuously improves predictions with new data, ensuring the platform provides 
 
 
 
-🌍 ImpactBy transforming raw health data into valuable insights, this platform promotes proactive health management. It empowers individuals to stay informed about their health while enabling healthcare professionals to make better decisions, contributing to a more efficient and effective healthcare system.
+<b>🌍 ImpactBy transforming raw health data into valuable insights, this platform promotes proactive health management. It empowers individuals to stay informed about their health while enabling healthcare professionals to make better decisions, contributing to a more efficient and effective healthcare system.</b>
