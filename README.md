@@ -1,4 +1,4 @@
-This platform analyzes a variety of health data—from demographics and lifestyle habits to medical history and wearable device metrics—enabling early detection of potential health issues. It empowers individuals to make informed health decisions while assisting healthcare professionals with crucial data-driven insights.</br><b>⚙️ Key Features</b></br>
+This platform analyzes a variety of health data—from demographics and lifestyle habits to medical history and wearable device metrics—enabling early detection of potential health issues. It empowers individuals to make informed health decisions while assisting healthcare professionals with crucial data-driven insights.</br></br></br><b>⚙️ Key Features</b></br>
 
 <b>Data Integration 📊:</b>
 
